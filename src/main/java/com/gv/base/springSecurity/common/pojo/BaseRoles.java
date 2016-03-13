@@ -33,7 +33,6 @@ public class BaseRoles extends BasePo implements java.io.Serializable {
 	private Timestamp createdDate;
 	private String lastUpdatedBy;
 	private Timestamp lastUpdatedDate;
-	private String storeFlag;
 
 	// Constructors
 
@@ -63,7 +62,6 @@ public class BaseRoles extends BasePo implements java.io.Serializable {
 		this.createdDate = createdDate;
 		this.lastUpdatedBy = lastUpdatedBy;
 		this.lastUpdatedDate = lastUpdatedDate;
-		this.storeFlag=storeFlag;
 	}
 
 	// Property accessors
@@ -156,16 +154,6 @@ public class BaseRoles extends BasePo implements java.io.Serializable {
 		this.lastUpdatedDate = lastUpdatedDate;
 	}
 	
-	public String getStoreFlag() {
-		return storeFlag;
-	}
-
-	public void setStoreFlag(String storeFlag) {
-		this.storeFlag = storeFlag;
-	}
-
-
-
 	
 	@Override
 	public Key getPk() {

@@ -16,8 +16,6 @@ import com.gv.core.email.impl.CommonMailSender;
 import com.gv.core.email.impl.DefaultMail;
 import com.gv.core.util.BeanUtils;
 import com.gv.core.util.ObjectUtils;
-import com.lshop.common.pojo.JobEmailBean;
-import com.lshop.common.pojo.logic.LvMailConfig;
 import com.lshop.common.thread.MailCreator;
 import com.lshop.common.thread.impl.MailCreatorImpl;
 import com.lshop.common.util.PropertiesHelper;
@@ -102,64 +100,32 @@ private LvMailConfigService lvMailConfigService;
 	 */
 	public Map getEmailProperties(Dto dto){
 		Map map=new HashMap();
-		String mallFlag=(String) dto.get("mallFlag");
-		if(ObjectUtils.isNotEmpty(mallFlag)){
-			LvMailConfig lvMailConfig=lvMailConfigService.findByMallFlag(dto);
-			if(lvMailConfig!=null){
-				String [] arrUsers=lvMailConfig.getSendUserName().split(",");
-				List<String> emaiList=new ArrayList<String>();
-				for (int i = 0; i < arrUsers.length; i++) {
-					emaiList.add(arrUsers[i]);	
-				}
-				
-				Random random =new Random();
-				int num=random.nextInt(emaiList.size());
-				String email=emaiList.get(num);
-				
-				map.put("emailService",lvMailConfig.getSendSmtpHost());
-				map.put("email",email);
-				map.put("emailPwd",lvMailConfig.getSendPassword());
-				map.put("mailfromName", lvMailConfig.getMailFrom());
-			}
-		}
+//		String mallFlag=(String) dto.get("mallFlag");
+//		if(ObjectUtils.isNotEmpty(mallFlag)){
+//			LvMailConfig lvMailConfig=lvMailConfigService.findByMallFlag(dto);
+//			if(lvMailConfig!=null){
+//				String [] arrUsers=lvMailConfig.getSendUserName().split(",");
+//				List<String> emaiList=new ArrayList<String>();
+//				for (int i = 0; i < arrUsers.length; i++) {
+//					emaiList.add(arrUsers[i]);	
+//				}
+//				
+//				Random random =new Random();
+//				int num=random.nextInt(emaiList.size());
+//				String email=emaiList.get(num);
+//				
+//				map.put("emailService",lvMailConfig.getSendSmtpHost());
+//				map.put("email",email);
+//				map.put("emailPwd",lvMailConfig.getSendPassword());
+//				map.put("mailfromName", lvMailConfig.getMailFrom());
+//			}
+//		}
 		return  map;
 	}
 
 
 	
-/**
- * 发申请job邮件
- */
-		@Override
-    public Boolean sendApplyJobEmail(Dto dto) {
-			// TODO Auto-generated method stub
-			Map map=this.getEmailProperties();
-			MailCreatorImpl mailsend=new MailCreatorImpl();
-			mailsend.setSender(new CommonMailSender(String.valueOf(map.get("emailService")),
-					                                String.valueOf(map.get("email")),
-					                                String.valueOf(map.get("emailPwd"))));
-			
-			
-			String content=dto.getAsString("content");
-			JobEmailBean job=(JobEmailBean)dto.get("job");
-			Map<String ,Object> obj=BeanUtils.describe(job);
-			for (String key : obj.keySet()) {
-				Object bean=obj.get(key);
-				if (bean==null||bean instanceof String) {
-					content=content.replaceAll("#"+key, bean==null?"":bean.toString());
-				}
-				
-			}
-			DefaultMail mail = new DefaultMail();
-			mail.setMailTo(dto.getAsString("userEmail"));//获取收件人Email
-			mail.setMailSubject(dto.getAsString("title"));
-			mail.setMailForm(String.valueOf(map.get("email")));
-			mail.setMailFormName(String.valueOf(map.get("mailfromName")));
-			mail.setMailBody(content);
-			mailsend.create(mail);
-			return true;
-		}
-		
+
 		
 		
 		

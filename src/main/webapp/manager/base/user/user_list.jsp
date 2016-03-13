@@ -40,11 +40,10 @@
 				<th width="5%" orderField="id" class="${orderDirection}">ID</th>
 				<th width="10%" >账号</th>
 				<th width="10%" >姓名</th>
-				<th width="10%" >所属店铺</th>
 				<th width="10%" >描述</th>
 				<th width="5%" orderField="status" class="${orderDirection}">状态</th>
-				<th width="10%" orderField="userLogintime" class="${orderDirection}">最近登录时间</th>
-				<th width="10%" >最近登录IP</th>
+				<th width="15%" orderField="userLogintime" class="${orderDirection}">最近登录时间</th>
+				<th width="15%" >最近登录IP</th>
 				<th width="30%" >操作</th>
 			</tr>
 		</thead>
@@ -55,7 +54,6 @@
 				<td>${user.id}</td>
 				<td>${user.userAccount}</td>
 				<td>${user.userName}</td>
-				<td>${user.storeFlag}</td>
 				<td>${user.userDesc}</td>
 				<td>
 				<c:if test="${user.status==1}">正常</c:if>

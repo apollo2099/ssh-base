@@ -40,10 +40,9 @@
 			<tr>
 				<th width="1%"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
 				<th width="5%" orderField="id" class="${orderDirection}">ID</th>
-				<th width="15%" >角色名称</th>
+				<th width="25%" >角色名称</th>
 				<th width="15%" >角色描述</th>
-				<th width="15%" >所属店铺</th>
-				<th width="15%" orderField="createdBy" class="${orderDirection}">创建时间</th>
+				<th width="20%" orderField="createdBy" class="${orderDirection}">创建时间</th>
 				<th width="25%" >操作</th>
 			</tr>
 		</thead>
@@ -54,11 +53,6 @@
 				<td>${baseRoles.id}</td>
 				<td>${baseRoles.roleName}</td>
 				<td>${baseRoles.roleDesc}</td>
-				<td>
-				<c:foreach items="${storeList}" var="store">
-				<c:if test="${store.storeFlag==baseRoles.storeFlag}">${store.name}</c:if>
-				</c:foreach>
-				</td>
 				<td><fmt:formatDate value="${baseRoles.createdDate}" pattern="yyyy-MM-dd HH:mm:ss"/> </td>
 				<td>
 				<sec:authorize url="roleEdit">

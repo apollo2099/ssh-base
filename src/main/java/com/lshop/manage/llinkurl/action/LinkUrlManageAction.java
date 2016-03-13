@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 
 import com.gv.core.datastructure.page.Pagination;
 import com.lshop.common.pojo.logic.LvLinkUrl;
-import com.lshop.common.pojo.logic.LvStore;
 import com.lshop.manage.common.action.BaseManagerAction;
 
 /**
@@ -37,14 +36,11 @@ public class LinkUrlManageAction extends BaseManagerAction {
 		page = (Pagination) doService("LinkUrlManageService", "list", dto);
 		
 		//查询所有店铺信息
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","getAll", dto);
-		this.getRequest().setAttribute("storeList", storeList);
+
 		return "list";
 	}
    public String bufAdd(){
 		//查询所有店铺信息
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","getAll", dto);
-		this.getRequest().setAttribute("storeList", storeList);
 	    return "bufAdd";
    }
 	/**
@@ -103,8 +99,8 @@ public class LinkUrlManageAction extends BaseManagerAction {
 		vo = (LvLinkUrl) doService("LinkUrlManageService", "viewres", dto);
 		
 		//查询所有店铺信息
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","getAll", dto);
-		this.getRequest().setAttribute("storeList", storeList);
+//		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","getAll", dto);
+//		this.getRequest().setAttribute("storeList", storeList);
 		return "info";
 	}
 

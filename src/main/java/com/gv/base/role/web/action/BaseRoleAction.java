@@ -11,7 +11,6 @@ import com.gv.core.datastructure.page.Pagination;
 import com.gv.core.exception.ActionException;
 import com.gv.core.util.ObjectUtils;
 import com.gv.core.web.action.BaseAction;
-import com.lshop.common.pojo.logic.LvStore;
 /**
  * 
  * 项目名称：base_demo   
@@ -57,11 +56,7 @@ public class BaseRoleAction extends BaseAction{
 		
 		dto.put("departmentCode", request.getParameter("code"));
 		page = (Pagination)super.doService("BaseRoleService", "getList", dto);
-		
-		//查询所有店铺信息
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","findAllStore", dto);
-		this.getRequest().setAttribute("storeList", storeList);
-	
+			
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseResourcesAction.list() method end*****");
 		}	
@@ -83,10 +78,6 @@ public class BaseRoleAction extends BaseAction{
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseDepartmentAction.bfAdd() method begin*****");
 		}		
-
-		//查询所有店铺信息
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","findAllStore", dto);
-		this.getRequest().setAttribute("storeList", storeList);
 		
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseDepartmentAction.bfAdd() method end*****");
@@ -110,16 +101,6 @@ public class BaseRoleAction extends BaseAction{
 			logger.info("***** BaseDepartmentAction.add() method begin*****");
 		}		
 		
-		if(baseRoles!=null){
-			if(ObjectUtils.isNotEmpty(this.storeFlagList)){
-				String [] array= storeFlagList.split(",");
-				for (int i = 0; i < array.length; i++) {
-					baseRoles.setStoreFlag(array[i].trim());
-					dto.put("baseRoles", baseRoles);
-					super.doService("BaseRoleService", "save", dto);
-				}
-			}
-		}
 		
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseDepartmentAction.add() method end*****");

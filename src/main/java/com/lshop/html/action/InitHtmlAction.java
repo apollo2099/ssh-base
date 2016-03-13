@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.gv.core.exception.ActionException;
-import com.lshop.common.pojo.logic.LvStore;
 import com.lshop.common.util.Constants;
 import com.lshop.html.bean.HtmlStaticDto;
 import com.lshop.html.util.CacheMemory;
@@ -53,18 +52,18 @@ public class InitHtmlAction extends BaseManagerAction{
 				logger.info("***** InitHtmlAction.init() method begin*****");
 			}
 			try{
-				List<LvStore> storeList=(List<LvStore>)this.doService("LvStoreService", "findAllStore", dto);
+//				List<LvStore> storeList=(List<LvStore>)this.doService("LvStoreService", "findAllStore", dto);
 				List list=new ArrayList();
-				for (LvStore lvStore : storeList) {
-					String domainname=request.getScheme()+"://"+lvStore.getDomainName();
-					String htmlpath=request.getRealPath("/")+"web/"+lvStore.getStoreFlag();
-					HtmlStaticDto htmlDto=new HtmlStaticDto();
-					htmlDto.setDomainname(domainname);
-					htmlDto.setHtmlpath(htmlpath);
-					htmlDto.setStoreFlag(lvStore.getStoreFlag());
-					list.add(htmlDto);
-					dto.put("note", note);
-				}
+//				for (LvStore lvStore : storeList) {
+//					String domainname=request.getScheme()+"://"+lvStore.getDomainName();
+//					String htmlpath=request.getRealPath("/")+"web/"+lvStore.getStoreFlag();
+//					HtmlStaticDto htmlDto=new HtmlStaticDto();
+//					htmlDto.setDomainname(domainname);
+//					htmlDto.setHtmlpath(htmlpath);
+//					htmlDto.setStoreFlag(lvStore.getStoreFlag());
+//					list.add(htmlDto);
+//					dto.put("note", note);
+//				}
 				dto.put("list", list);
 				super.doService( "InitLinkDataService", "init", dto);
 				

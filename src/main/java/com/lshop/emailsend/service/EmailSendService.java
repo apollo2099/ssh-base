@@ -22,12 +22,6 @@ public interface EmailSendService {
 	 * 发优惠券推广邮件
 	 */
 	public Boolean sendEmailCounp(Dto dto);
-	/**
-	 * 发申请job邮件
-	 * @param dto
-	 * @return
-	 */
-	public Boolean sendApplyJobEmail(Dto dto) ;
 
 	/**
 	 * 一码多用系统中发邮件

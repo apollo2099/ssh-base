@@ -20,14 +20,6 @@
 				<label>描述：</label>
 				<textarea name="baseUsers.userDesc" cols="30" rows="6"  alt="简介/备注"></textarea>
 			</p>
-			<p >
-				<label>所属店铺：</label>
-				<select name="baseUsers.storeFlag" class="required" multiple="multiple" style="height:300px;">
-				<s:iterator value="#request.storeList" id="store">
-				<option value="${storeFlag}">${store.name}</option>
-				</s:iterator>
-				</select>
-			</p>
 		</div>
 		<div class="formBar">
 			<ul>

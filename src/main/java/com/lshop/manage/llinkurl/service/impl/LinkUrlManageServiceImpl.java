@@ -15,7 +15,6 @@ import com.gv.core.hibernate3.Finder;
 import com.gv.core.hibernate3.HibernateBaseDAO;
 import com.gv.core.util.ObjectUtils;
 import com.lshop.common.pojo.logic.LvLinkUrl;
-import com.lshop.common.pojo.logic.LvStore;
 import com.lshop.common.util.Constants;
 import com.lshop.common.util.StoreHelpUtil;
 import com.lshop.common.util.StringUtil;

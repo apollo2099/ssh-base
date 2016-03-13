@@ -114,7 +114,7 @@ public class BaseRoleServiceImpl extends BaseServiceImpl implements BaseRoleServ
 		}		
 		
 		BaseRoles baseRoles = (BaseRoles) dto.get("baseRoles");
-		String hql = "from BaseRoles where roleName='"+baseRoles.getRoleName()+"' and status=1 and storeFlag='"+baseRoles.getStoreFlag()+"'";
+		String hql = "from BaseRoles where roleName='"+baseRoles.getRoleName()+"' and status=1";
 		
 		if (dao.find(hql, null).size()>0) {
 			dto.setAppCode(StatusCode.M_Failure);

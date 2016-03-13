@@ -31,19 +31,6 @@
 				<label>描述：</label>
 				<textarea name="baseUsers.userDesc"  cols="30" rows="6"  alt="简介/备注">${baseUsers.userDesc}</textarea>
 			</p>
-			<p >
-				<label>所属店铺：</label>
-				<select name="baseUsers.storeFlag" class="required" multiple="multiple" style="height:300px;">
-				
-				<c:foreach items="${storeList}" var="store">
-				<option value="${store.storeFlag}" 
-				<c:foreach items="${selectFlagList }" var="tempStore">
-				<c:if test="${store.storeFlag==tempStore.storeFlag }">selected="selected"</c:if>
-				</c:foreach>>${store.name}</option>
-				</c:foreach>
-				</select>
-			</p>
-			
 		</div>
 		<div class="formBar">
 			<ul>

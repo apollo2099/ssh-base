@@ -1,20 +1,12 @@
 package com.gv.base.user.web.action;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
 import com.gv.base.springSecurity.common.pojo.BaseUsers;
 import com.gv.core.datastructure.Dto;
 import com.gv.core.datastructure.page.Pagination;
 import com.gv.core.exception.ActionException;
-import com.gv.core.util.ObjectUtils;
-import com.gv.core.web.action.BaseAction;
-import com.lshop.common.pojo.logic.LvStore;
 import com.lshop.manage.common.action.BaseManagerAction;
 /**
  * 
@@ -88,8 +80,6 @@ public class BaseUserAction extends BaseManagerAction{
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseUserAction.bfAdd() method begin*****");
 		}		
-		List<LvStore> storeList=(List<LvStore>) this.doService("LvStoreService", "getAll", dto);
-		this.getRequest().setAttribute("storeList", storeList);
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseUserAction.bfAdd() method end*****");
 		}	
@@ -140,23 +130,6 @@ public class BaseUserAction extends BaseManagerAction{
 		
 		dto.put("userCode", request.getParameter("userCode"));
 		baseUsers = (BaseUsers) super.doService("BaseUserService", "get", dto);
-		
-		//获取选中的店铺信息集合
-		List<LvStore> selectFlagList=new ArrayList<LvStore>();
-		String storeFlag=baseUsers.getStoreFlag();
-		String [] arr=storeFlag.split(",");
-		String temp="";
-		for (int i = 0; i < arr.length; i++) {
-			if (ObjectUtils.isNotEmpty(arr[i])) {
-				LvStore tmpStore=new LvStore();
-				tmpStore.setStoreFlag(arr[i].trim());
-				selectFlagList.add(tmpStore);
-			}
-		}
-		this.getRequest().setAttribute("selectFlagList", selectFlagList);
-		
-		List<LvStore> storeList=(List<LvStore>) this.doService("LvStoreService", "getAll", dto);
-		this.getRequest().setAttribute("storeList", storeList);
 		
 		if (logger.isInfoEnabled()){
 			logger.info("***** BaseUserAction.bfEdit() method end*****");

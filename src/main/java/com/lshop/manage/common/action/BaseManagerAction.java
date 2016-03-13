@@ -5,7 +5,6 @@ import com.gv.core.datastructure.Dto;
 import com.gv.core.datastructure.impl.BaseDto;
 import com.gv.core.exception.ActionException;
 import com.gv.core.util.ObjectUtils;
-import com.lshop.common.pojo.logic.LvStore;
 
 public class BaseManagerAction extends com.gv.core.web.action.BaseAction {
 	

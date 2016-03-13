@@ -27,9 +27,7 @@ import com.gv.core.web.action.BaseAction;
 import com.lshop.common.file.FileManager;
 import com.lshop.common.file.FileManagerImpl;
 import com.lshop.common.file.Tpl;
-import com.lshop.common.pojo.logic.LvStore;
 import com.lshop.manage.common.action.BaseManagerAction;
-import com.lshop.manage.lvTplModelPublic.action.LvTplModelPublicMngAction;
 @Controller("ResManagerAction")
 @Scope("prototype")
 @SuppressWarnings("all")
@@ -177,13 +175,13 @@ public class ResManagerAction extends  BaseManagerAction{
 	}
 	public String list() {
 		//根据当前用户查询对应用户的店铺信息（可支持多角色操作）
-		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","findAllStore", dto);
-		this.getRequest().setAttribute("storeList", storeList);
-		if(ObjectUtils.isEmpty(storeFlag)){
-			LvStore lvStore=storeList.get(0);
-			storeFlag=lvStore.getStoreFlag();
-			this.getRequest().setAttribute("storeFlag", storeFlag);
-		}
+//		List<LvStore> storeList= (List<LvStore>) this.doService("LvStoreService","findAllStore", dto);
+//		this.getRequest().setAttribute("storeList", storeList);
+//		if(ObjectUtils.isEmpty(storeFlag)){
+//			LvStore lvStore=storeList.get(0);
+//			storeFlag=lvStore.getStoreFlag();
+//			this.getRequest().setAttribute("storeFlag", storeFlag);
+//		}
 		
 		
 		String path = this.getPath(storeFlag);

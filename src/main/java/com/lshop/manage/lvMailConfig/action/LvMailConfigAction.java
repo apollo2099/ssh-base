@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.lshop.common.pojo.logic.LvMailConfig;
-import com.lshop.common.pojo.logic.LvTplModelPublic;
 import com.lshop.common.util.CodeUtils;
 import com.gv.base.springSecurity.common.pojo.BaseUsers;
 import com.gv.core.web.action.BaseAction;
@@ -44,8 +43,6 @@ public class LvMailConfigAction extends BaseAction{
 	 */
 	public String befSave()throws ActionException{
 		//查询商城体系信息
-		List<LvTplModelPublic> mallSystemList=(List)this.doService("LvMallSystemService", "findAll", dto);
-		this.getRequest().setAttribute("mallSystemList", mallSystemList);
 		return "befSave";
 	}
 	
@@ -103,9 +100,7 @@ public class LvMailConfigAction extends BaseAction{
 		dto.put("lvMailConfig", lvMailConfig);
 		lvMailConfig = (LvMailConfig)this.doService("LvMailConfigService", "get", dto);
 		
-		//查询商城体系信息
-		List<LvTplModelPublic> mallSystemList=(List)this.doService("LvMallSystemService", "findAll", dto);
-		this.getRequest().setAttribute("mallSystemList", mallSystemList);
+
 		if (logger.isInfoEnabled()){
 			logger.info("***** LvMailConfigAction.view() method end*****");
 		}
@@ -124,9 +119,6 @@ public class LvMailConfigAction extends BaseAction{
 		dto.put("lvMailConfig", lvMailConfig);
 		lvMailConfig = (LvMailConfig)this.doService("LvMailConfigService", "get", dto);
 		
-		//查询商城体系信息
-		List<LvTplModelPublic> mallSystemList=(List)this.doService("LvMallSystemService", "findAll", dto);
-		this.getRequest().setAttribute("mallSystemList", mallSystemList);
 		if (logger.isInfoEnabled()){
 			logger.info("***** LvMailConfigAction.befEdit() method end*****");
 		}

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.gv.core.datastructure.Dto;
 import com.gv.core.hibernate3.HibernateBaseDAO;
 import com.lshop.common.util.Constants;
-import com.lshop.common.util.SearchUtil;
 import com.lshop.html.service.InitIndexDataService;
 
 @Service("InitIndexDataService")
@@ -28,8 +27,8 @@ public class InitIndexDataServiceImpl implements InitIndexDataService {
 	@Override
 	public void run() {
 		try {
-			SearchUtil.initProductInfo(dao);
-			SearchUtil.initStoreInfo(dao);
+//			SearchUtil.initProductInfo(dao);
+//			SearchUtil.initStoreInfo(dao);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
